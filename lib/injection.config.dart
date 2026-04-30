@@ -18,8 +18,8 @@ import 'network/api_handler.dart' as _i249;
 import 'network/http_service.dart' as _i812;
 import 'network/network.dart' as _i1010;
 import 'providers/login_provider.dart' as _i201;
-import 'repostories/auth_repository.dart' as _i127;
-import 'repostories/repositories.dart' as _i707;
+import 'repositories/auth_repository.dart' as _i127;
+import 'repositories/repositories.dart' as _i707;
 import 'usecases/login_usecase.dart' as _i178;
 
 extension GetItInjectableX on _i174.GetIt {

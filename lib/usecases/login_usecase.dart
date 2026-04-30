@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:new_setup/models/models.dart';
 import 'package:new_setup/network/network.dart';
-import 'package:new_setup/repostories/repositories.dart';
+import 'package:new_setup/repositories/repositories.dart';
 
 @lazySingleton
 class LoginUsecase {
