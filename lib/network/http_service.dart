@@ -1,41 +1,14 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:new_setup/core/core.dart';
 import 'package:new_setup/network/network.dart';
 
 @lazySingleton
 class HttpService {
-  late final Dio _dio;
-  final SecureStorageHelper _secureStorageHelper;
+  final Dio _dio;
   final CancelToken _cancelToken = CancelToken();
 
-  HttpService(this._secureStorageHelper) {
-    _initializeDio();
-  }
-
-  void _initializeDio() {
-    _dio = Dio(
-      BaseOptions(
-        baseUrl: AppEndpoints.baseUrl,
-        contentType: 'application/json; charset=utf-8',
-        responseType: ResponseType.json,
-        connectTimeout: const Duration(seconds: 10),
-        receiveTimeout: const Duration(seconds: 10),
-      ),
-    );
-
-    _dio.interceptors.add(
-      AuthInterceptor(dio: _dio, secureStorageHelper: _secureStorageHelper),
-    );
-
-    if (kDebugMode) {
-      _dio.interceptors.add(
-        LogInterceptor(requestBody: true, responseBody: true, error: true),
-      );
-    }
-  }
+  HttpService(this._dio);
 
   void cancelRequests() => _cancelToken.cancel('Request canceled');
 

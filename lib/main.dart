@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:new_setup/core/themes/light_theme_data.dart';
 import 'package:new_setup/injection.dart';
 import 'package:new_setup/providers/login_provider.dart';
@@ -7,6 +8,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
   await configureDependencies();
   runApp(const MyApp());
 }

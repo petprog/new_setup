@@ -29,7 +29,7 @@ dependencies:
   image_cropper: ^9.1.0
   image_picker: ^1.2.0
   infinite_scroll_pagination: ^5.1.1
-  flutter_secure_storage: ^9.2.4
+  flutter_secure_storage: ^10.1.0
   shared_preferences: ^2.4.0
   skeletonizer: ^2.0.1
   shimmer: ^3.0.0
@@ -85,6 +85,8 @@ dependencies:
   upgrader: ^13.0.0
   connectivity_plus: ^6.1.5
   injectable: ^3.0.0
+  hive_flutter: ^1.1.0
+  hive: ^2.2.3
 
 
 dev_dependencies:
