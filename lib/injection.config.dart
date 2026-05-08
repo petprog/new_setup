@@ -21,9 +21,7 @@ import 'core/storage/secure_storage.dart' as _i682;
 import 'core/storage/services/hive_storage_engine.dart' as _i851;
 import 'core/storage/services/reinstall_guard.dart' as _i476;
 import 'core/storage/services/secure_key_manager.dart' as _i609;
-import 'core/storage/services/services.dart' as _i383;
 import 'core/storage/services/token_storage.dart' as _i1062;
-import 'core/storage/storage_impl.dart' as _i932;
 import 'network/api_handler.dart' as _i249;
 import 'network/di/network_module.dart' as _i823;
 import 'network/http_service.dart' as _i812;
@@ -64,16 +62,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i476.ReinstallGuard>(
       () => _i476.ReinstallGuardImpl(gh<_i558.FlutterSecureStorage>()),
     );
-    gh.lazySingleton<_i932.StorageImpl>(
-      () => _i932.StorageImpl(
-        gh<_i383.TokenStorage>(),
-        gh<_i383.SecureKeyManager>(),
-        gh<_i383.HiveStorageEngine>(),
-        gh<_i383.ReinstallGuard>(),
+    await gh.singletonAsync<_i446.Storage>(
+      () => storageModule.storage(
+        gh<_i446.TokenStorage>(),
+        gh<_i446.SecureKeyManager>(),
+        gh<_i446.HiveStorageEngine>(),
+        gh<_i446.ReinstallGuard>(),
       ),
-    );
-    await gh.lazySingletonAsync<_i446.Storage>(
-      () => storageModule.storage(gh<_i446.StorageImpl>()),
       preResolve: true,
     );
     gh.lazySingleton<_i812.HttpService>(

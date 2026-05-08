@@ -1,5 +1,3 @@
-import 'package:injectable/injectable.dart';
-
 import 'services/services.dart';
 
 abstract interface class Storage {
@@ -24,7 +22,6 @@ abstract interface class Storage {
   Future<void> clearStorage();
 }
 
-@lazySingleton
 class StorageImpl implements Storage {
   StorageImpl(
     this._tokenStorage,
